@@ -1,4 +1,4 @@
-const arr = ["java", 78,  "Javascript", "NODE", 128, "Hello", "fraction", 1, -90];
+const arr = ["Uga", "java", 78,  "Javascript", "NODE", 128, "Hello", "fraction", 1, -90];
 
 function compNumStr(e1, e2) {
   if (typeof e1 === 'number' && typeof e2 === 'string') {
@@ -7,7 +7,14 @@ function compNumStr(e1, e2) {
     return 1;
   } else if (typeof e1 === 'number' && typeof e2 === 'number') {
     return e2 - e1;
-  } else{
+  } else if (typeof e1 === 'string' && typeof e2 === 'string') {
+    if (e1 < e2) {
+      return -1;
+    } else if (e1 > e2) {
+      return 1;
+    } else {
+      return 0;
+    }
     return 0;
   }
 }
