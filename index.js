@@ -2,15 +2,17 @@ function compNumStr(e1, e2) {
   const isNum1 = typeof e1 === "number";
   const isNum2 = typeof e2 === "number";
 
+  let result;
+
   if (isNum1 && isNum2) {
-    return e2 - e1;
+    result = e2 - e1; 
+  } else if (isNum1 || isNum2) {
+    result = isNum1 ? -1 : 1; 
+  } else {
+    result = e1 > e2 ? 1 : -1; 
   }
 
-  if (!isNum1 && !isNum2) {
-    return e1 > e2 ? 1 : -1;
-  }
-
-  return isNum1 ? -1 : 1;
+  return result;
 }
 
 const arr = [
@@ -29,8 +31,7 @@ const arr = [
 arr.sort(compNumStr);
 console.log(arr);
 
-arr.sort(compNumStr);
-console.log(arr);
+
 
 arrHTML = [2, "About you & me", 1, "Hello", 3, "World"];
 arrHTML.map(function (element) {
