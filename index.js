@@ -1,3 +1,18 @@
+function compNumStr(e1, e2) {
+  const isNum1 = typeof e1 === "number";
+  const isNum2 = typeof e2 === "number";
+
+  if (isNum1 && isNum2) {
+    return e2 - e1;
+  }
+
+  if (!isNum1 && !isNum2) {
+    return e1 > e2 ? 1 : -1;
+  }
+
+  return isNum1 ? -1 : 1;
+}
+
 const arr = [
   "Uga",
   "java",
@@ -11,24 +26,8 @@ const arr = [
   -90,
 ];
 
-function compNumStr(e1, e2) {
-  if (typeof e1 === "number" && typeof e2 === "string") {
-    return -1;
-  } else if (typeof e1 === "string" && typeof e2 === "number") {
-    return 1;
-  } else if (typeof e1 === "number" && typeof e2 === "number") {
-    return e2 - e1;
-  } else if (typeof e1 === "string" && typeof e2 === "string") {
-    if (e1 < e2) {
-      return -1;
-    } else if (e1 > e2) {
-      return 1;
-    } else {
-      return 0;
-    }
-    return 0;
-  }
-}
+arr.sort(compNumStr);
+console.log(arr);
 
 arr.sort(compNumStr);
 console.log(arr);
