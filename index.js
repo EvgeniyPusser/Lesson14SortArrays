@@ -34,11 +34,13 @@ console.log(arr);
 // function orderedList(array) {
 //   return `
 //         <ol>
-//             ${array.map(function (item) {
-//               return `<li class="item${
-//                 typeof item === "number" ? " item_number" : ""
-//               }">${item}</li>`;
-//             })}
+//             ${array
+//               .map(function (item) {
+//                 return `<li class="item${
+//                   typeof item === "number" ? " item_number" : ""
+//                 }">${item}</li>`;
+//               })
+//               .join("")}
 //         </ol>
 //     `;
 // }
@@ -46,17 +48,15 @@ console.log(arr);
 function orderedList(array) {
   return (
     "<ol>" +
-    array
-      .map(function (item) {
-        return (
-          '<li class="item' +
-          (typeof item === "number" ? " item_number" : "") +
-          '">' +
-          item +
-          "</li>"
-        );
-      })
-      .join("") +
+    array.map(function (item) {
+      return (
+        '<li class="item' +
+        (typeof item === "number" ? " item_number" : "") +
+        '">' +
+        item +
+        "</li>"
+      );
+    }).join("") +
     "</ol>"
   );
 }
