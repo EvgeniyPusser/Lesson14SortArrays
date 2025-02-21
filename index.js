@@ -5,11 +5,11 @@ function compNumStr(e1, e2) {
   let result;
 
   if (isNum1 && isNum2) {
-    result = e2 - e1; 
+    result = e2 - e1;
   } else if (isNum1 || isNum2) {
-    result = isNum1 ? -1 : 1; 
+    result = isNum1 ? -1 : 1;
   } else {
-    result = e1 > e2 ? 1 : -1; 
+    result = e1 > e2 ? 1 : -1;
   }
 
   return result;
@@ -31,30 +31,14 @@ const arr = [
 arr.sort(compNumStr);
 console.log(arr);
 
-
-
-arrHTML = [2, "About you & me", 1, "Hello", 3, "World"];
-arrHTML.map(function (element) {
-  if (typeof element === "string") {
-    let res = '<li class="item">element</li>';
-  } else if (typeof element === "number") {
-    let res = '<li class="item item_number">element</li>';
-  }
-});
-
-const str = arrHTML.join("<br>");
-console.log(str);
-
 function orderedList(array) {
   return `
         <ol>
-            ${array
-              .map(function (item) {
-                return `<li class="item${
-                  typeof item === "number" ? " item_number" : ""
-                }">${item}</li>`;
-              })
-              .join("")}
+            ${array.map(function (item) {
+              return `<li class="item${
+                typeof item === "number" ? " item_number" : ""
+              }">${item}</li>`;
+            })}
         </ol>
     `;
 }
