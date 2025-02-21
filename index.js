@@ -31,16 +31,34 @@ const arr = [
 arr.sort(compNumStr);
 console.log(arr);
 
+// function orderedList(array) {
+//   return `
+//         <ol>
+//             ${array.map(function (item) {
+//               return `<li class="item${
+//                 typeof item === "number" ? " item_number" : ""
+//               }">${item}</li>`;
+//             })}
+//         </ol>
+//     `;
+// }
+
 function orderedList(array) {
-  return `
-        <ol>
-            ${array.map(function (item) {
-              return `<li class="item${
-                typeof item === "number" ? " item_number" : ""
-              }">${item}</li>`;
-            })}
-        </ol>
-    `;
+  return (
+    "<ol>" +
+    array
+      .map(function (item) {
+        return (
+          '<li class="item' +
+          (typeof item === "number" ? " item_number" : "") +
+          '">' +
+          item +
+          "</li>"
+        );
+      })
+      .join("") +
+    "</ol>"
+  );
 }
 
 const bodyElement = document.querySelector("body");
